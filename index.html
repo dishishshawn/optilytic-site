@@ -1701,23 +1701,27 @@
             <div class="reveal">
                 <h3>Request a demo</h3>
                 <form onsubmit="handleSubmit(event)">
+                    <input type="hidden" name="_subject" value="New Optilytic website inquiry">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="text" name="_honey" style="display:none">
                     <div class="form-row">
                         <div class="form-group">
                             <label>Full Name</label>
-                            <input type="text" placeholder="Your name" required>
+                            <input type="text" name="name" placeholder="Your name" required>
                         </div>
                         <div class="form-group">
                             <label>Company</label>
-                            <input type="text" placeholder="Company name">
+                            <input type="text" name="company" placeholder="Company name">
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Email</label>
-                        <input type="email" placeholder="you@company.com" required>
+                        <input type="email" name="email" placeholder="you@company.com" required>
                     </div>
                     <div class="form-group">
                         <label>Interest</label>
-                        <select>
+                        <select name="interest">
                             <option value="" disabled selected>What are you interested in?</option>
                             <option>Pipeline Agent Demo</option>
                             <option>Pathfinder Demo</option>
@@ -1728,7 +1732,7 @@
                     </div>
                     <div class="form-group">
                         <label>Message</label>
-                        <textarea placeholder="Tell us about your current challenges..."></textarea>
+                        <textarea name="message" placeholder="Tell us about your current challenges..."></textarea>
                     </div>
                     <button type="submit" class="btn-submit" id="submitBtn">Send message <span class="btn-arrow">&rarr;</span></button>
                 </form>
@@ -1841,22 +1845,38 @@
             });
         });
 
-        // Form
-        function handleSubmit(e) {
+        // Form — submits to shawnagarwal0@gmail.com via Formsubmit.co
+        async function handleSubmit(e) {
             e.preventDefault();
+            const form = e.target;
             const btn = document.getElementById('submitBtn');
             btn.textContent = 'Sending...';
             btn.style.opacity = '0.7';
-            setTimeout(() => {
+
+            const data = new FormData(form);
+            const payload = {};
+            data.forEach((v, k) => { payload[k] = v; });
+
+            try {
+                const res = await fetch('https://formsubmit.co/ajax/shawnagarwal0@gmail.com', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                if (!res.ok) throw new Error('send failed');
                 btn.innerHTML = 'Message sent! \u2713';
                 btn.style.opacity = '1';
                 btn.style.background = '#22c55e';
-                setTimeout(() => {
-                    btn.innerHTML = 'Send message <span class="btn-arrow">\u2192</span>';
-                    btn.style.background = '';
-                    e.target.reset();
-                }, 3000);
-            }, 1200);
+                form.reset();
+            } catch (err) {
+                btn.innerHTML = 'Failed — email contact@optilytic.com';
+                btn.style.background = '#dc2626';
+            }
+            setTimeout(() => {
+                btn.innerHTML = 'Send message <span class="btn-arrow">\u2192</span>';
+                btn.style.background = '';
+                btn.style.opacity = '1';
+            }, 4000);
         }
     </script>
 </body>
