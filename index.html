@@ -841,6 +841,83 @@
         }
 
         /* =============================================
+           SECTION: ROADMAP
+           ============================================= */
+        .roadmap-section {
+            background: var(--bg-cream);
+            padding: 130px 48px;
+            border-top: 1px solid rgba(0,0,0,0.04);
+        }
+        .roadmap-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .roadmap-header {
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 72px;
+        }
+        .roadmap-header .section-label { justify-content: center; }
+        .roadmap-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+        .roadmap-card {
+            background: #fff;
+            padding: 48px 44px;
+            border-radius: 6px;
+            border: 1px solid rgba(0,0,0,0.06);
+            position: relative;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .roadmap-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.06);
+            border-color: rgba(43,181,160,0.3);
+        }
+        .roadmap-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.68rem;
+            font-weight: 500;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--teal);
+            margin-bottom: 24px;
+        }
+        .roadmap-status::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--teal);
+            box-shadow: 0 0 0 4px rgba(43,181,160,0.15);
+        }
+        .roadmap-card h3 {
+            font-family: var(--serif);
+            font-weight: 400;
+            font-size: 1.7rem;
+            color: var(--text-dark);
+            margin-bottom: 14px;
+            line-height: 1.2;
+        }
+        .roadmap-tagline {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 1.05rem;
+            color: var(--teal);
+            margin-bottom: 18px;
+        }
+        .roadmap-card p {
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* =============================================
            SECTION: TEAM
            ============================================= */
         .team-section {
@@ -1210,6 +1287,7 @@
             .service-panel-accent { border-left: none; border-top: 1px solid rgba(0,0,0,0.04); }
             .contact-section { grid-template-columns: 1fr; }
             .team-header { grid-template-columns: 1fr; }
+            .roadmap-grid { grid-template-columns: 1fr; }
             .team-grid { grid-template-columns: 1fr 1fr; }
             .section-header-wide { grid-template-columns: 1fr; }
             .footer-top { grid-template-columns: 1fr 1fr; }
@@ -1244,6 +1322,7 @@
             .section-padded { padding: 80px 24px; }
             .stats-band, .how-section { padding: 80px 24px; }
             .team-section { padding: 80px 24px; }
+            .roadmap-section { padding: 80px 24px; }
             .cta-section { padding: 80px 24px; }
             .form-row { grid-template-columns: 1fr; }
             .footer-top { grid-template-columns: 1fr; gap: 32px; }
@@ -1493,6 +1572,33 @@
                 <a href="https://pathfinder-eta-ten.vercel.app/" target="_blank" rel="noopener" class="link-arrow" style="margin-top: 28px;">
                     View live demo <span class="btn-arrow">&rarr;</span>
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- =============================================
+         ROADMAP — IN DEVELOPMENT
+         ============================================= -->
+    <section class="roadmap-section" id="roadmap">
+        <div class="roadmap-inner">
+            <div class="roadmap-header reveal">
+                <div class="section-label">On the Roadmap</div>
+                <h2 class="section-title-lg">Two more agents, <em>shipping June 2026</em></h2>
+                <p class="section-body" style="max-width: 100%; margin: 16px auto 0;">Pathfinder and Pipeline Agent are live today. These are next up — purpose-built for the back-office work that still eats weeks of operator time.</p>
+            </div>
+            <div class="roadmap-grid">
+                <div class="roadmap-card reveal">
+                    <div class="roadmap-status">In Development · June 2026</div>
+                    <h3>Land &amp; Lease Intelligence</h3>
+                    <div class="roadmap-tagline">"Never miss a lease deadline again."</div>
+                    <p>Extracts royalty terms, Pugh clauses, and obligations from leases, deeds, and title opinions — alerts on every upcoming deadline.</p>
+                </div>
+                <div class="roadmap-card reveal" style="transition-delay: 0.1s;">
+                    <div class="roadmap-status">In Development · June 2026</div>
+                    <h3>Production Reporting &amp; State Filing</h3>
+                    <div class="roadmap-tagline">"State reports that file themselves."</div>
+                    <p>Auto-pulls production data, formats for every jurisdiction, and files electronically — saving $20–100K/yr in compliance labor.</p>
+                </div>
             </div>
         </div>
     </section>
