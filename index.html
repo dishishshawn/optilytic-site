@@ -740,7 +740,28 @@
            ============================================= */
         .services-section {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(3, 1fr);
+        }
+        .service-panel-accent {
+            background: var(--bg-warm);
+            color: var(--text-dark);
+            border-left: 1px solid rgba(0,0,0,0.04);
+        }
+        .service-panel-accent .service-tag { color: var(--gold); }
+        .service-panel-accent p { color: var(--text-muted); opacity: 1; }
+        .service-panel-accent .service-list li { opacity: 1; color: var(--text-muted); }
+        .service-panel-accent .service-check { background: var(--gold); }
+        .service-customer-tag {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            background: rgba(0,0,0,0.05);
+            padding: 5px 12px;
+            border-radius: 100px;
+            margin-bottom: 16px;
         }
         .service-panel {
             padding: 100px 72px;
@@ -1186,6 +1207,7 @@
             .stats-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
             .problems-grid { grid-template-columns: 1fr 1fr; }
             .services-section { grid-template-columns: 1fr; }
+            .service-panel-accent { border-left: none; border-top: 1px solid rgba(0,0,0,0.04); }
             .contact-section { grid-template-columns: 1fr; }
             .team-header { grid-template-columns: 1fr; }
             .team-grid { grid-template-columns: 1fr 1fr; }
@@ -1455,6 +1477,24 @@
                 </ul>
             </div>
         </div>
+        <div class="service-panel service-panel-accent">
+            <div class="reveal">
+                <span class="service-customer-tag">Built for Compass Energy Group</span>
+                <div class="service-tag">Product</div>
+                <h3>Pathfinder</h3>
+                <p>Forced-pooling paperwork, automated end to end. Pathfinder turns an Oklahoma Corporation Commission pooling order into a mailable notice packet in minutes — respondents extracted, addresses cross-checked, cover letters drafted.</p>
+                <ul class="service-list">
+                    <li><span class="service-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span> Respondent extraction from OCC orders</li>
+                    <li><span class="service-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span> Address verification against public filings</li>
+                    <li><span class="service-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span> Outdated-address flagging with cited signal</li>
+                    <li><span class="service-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span> One-click statutory cover letters</li>
+                    <li><span class="service-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span> Full audit trail for compliance</li>
+                </ul>
+                <a href="https://pathfinder-eta-ten.vercel.app/" target="_blank" rel="noopener" class="link-arrow" style="margin-top: 28px;">
+                    View live demo <span class="btn-arrow">&rarr;</span>
+                </a>
+            </div>
+        </div>
     </section>
 
     <!-- =============================================
@@ -1574,6 +1614,7 @@
                         <select>
                             <option value="" disabled selected>What are you interested in?</option>
                             <option>Pipeline Agent Demo</option>
+                            <option>Pathfinder Demo</option>
                             <option>AI Advisory &amp; Strategy</option>
                             <option>Partnership Opportunities</option>
                             <option>General Inquiry</option>
@@ -1607,6 +1648,7 @@
                     <ul>
                         <li><a href="#services">AI Advisory</a></li>
                         <li><a href="#services">Pipeline Agent</a></li>
+                        <li><a href="#services">Pathfinder</a></li>
                         <li><a href="#solution">How It Works</a></li>
                     </ul>
                 </div>
